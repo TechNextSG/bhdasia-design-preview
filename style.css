@@ -1416,3 +1416,35 @@ html body :is(.v11-card, #v11-lift):hover { border-color: rgba(238,203,54,.22) !
 .pt-trig .ac-prog { left: 70px; right: 20px; bottom: 6px; }
 .pt-trig .ac-prog i { background: linear-gradient(90deg, var(--marigold), var(--sun)); opacity: 1; }
 @media (prefers-reduced-motion: reduce) { .ac-prog { display: none; } }
+
+/* ==================================================================
+   v13 - CLEAN SECTION BACKGROUNDS (2026-10-12)
+   Every content section sits on one of two flat surfaces - no glows,
+   gradient washes or tinted bands behind sections. Hero, dark CTA
+   cards, card hover spotlights and the footer are untouched.
+   ================================================================== */
+:root { --sec-a: #FFFDF9; --sec-b: #F8F4EC; --sec-line: rgba(20, 36, 74, .07); }
+html body :is(.hx-stats, .hx-pil, .hx-faq, .hx-close,
+  .sv-svc, .sv-faq,
+  .ab-story, .ab-mv, .ab-cta,
+  .ev-next, .ev-past, .ev-cta,
+  .pt-dir, .pt-cta,
+  .ct-wrap,
+  .bio-white, .bio-cta,
+  .countdown-section) { background: var(--sec-a) !important; }
+html body :is(.hx-evts, .hx-pod,
+  .sv-intro, .sv-pkg,
+  .ab-team,
+  .ev-up,
+  .ct-news,
+  .bio-cream) { background: var(--sec-b) !important; }
+html body :is(.hx-sec, .sv-sec, .ab-sec, .ev-sec, .ev-next, .cta-strip, .pt-dir, .pt-cta, .ct-wrap, .ct-news, .bio-sec) {
+  border-color: var(--sec-line) !important; }
+/* static washes that sat behind the section content */
+html body :is(.hx-stats, .hx-pod, .sv-intro, .ab-mv, .ab-cta)::before,
+html body .ab-mv::after,
+html body :is(.hx-cl-list, .pt-list, .hx-cd, .home-countdown)::before,
+html body .ab-glow { display: none !important; }
+html body :is(.bio-quote, .bio-tl-card) { background-image: none !important; }
+/* closing strips: beat the page-level `.ev-cta.cta-strip` inline rules */
+html body .cta-strip.cta-strip.cta-strip { background: var(--sec-a) !important; }
